@@ -5,22 +5,25 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Root } from 'postcss';
+
 import Home from './Routes/Home';
 import Colleges from './Routes/Colleges';
 import Admission from './Routes/Admission';
 import MyColleges from './Routes/MyColleges';
 import Register from './Routes/Register';
 import Login from './Routes/Login';
+import Root from './Components/Root';
+import ErrorPage from './Routes/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root> ,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Home></Home>,
       },
       {
         path: "/colleges",
