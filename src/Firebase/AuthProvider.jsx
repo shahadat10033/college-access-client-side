@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "./firebase.config";
+import Swal from "sweetalert2";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
@@ -21,26 +22,17 @@ const AuthProvider = ({ children }) => {
   // google sign up
   const googleProvider = new GoogleAuthProvider();
   const googleSignUp = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        const user = result.user;
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-      });
+    setLoader(true);
+   return signInWithPopup(auth, googleProvider)
+      
   };
   // github sign up
   const githubProvider = new GithubAuthProvider();
 
   const githubSignUp = () => {
-    signInWithPopup(auth, githubProvider)
-      .then((result) => {
-        const user = result.user;
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
+    setLoader(true);
+   return signInWithPopup(auth, githubProvider)
+     
   };
   // email registration
 
@@ -59,6 +51,13 @@ const AuthProvider = ({ children }) => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'log out success',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
       .catch((error) => {
         // An error happened.

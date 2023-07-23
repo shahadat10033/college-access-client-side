@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Firebase/AuthProvider';
 
 const Navbar = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const {user,logOut,loader}=useContext(AuthContext)
+if(loader){
+   <p>loading..................</p>
+}
+  const loggedUser=user?.displayName
+  console.log(loggedUser)
+    
 
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
@@ -11,8 +19,9 @@ const Navbar = () => {
         <nav className="bg-green-500 p-4">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <div>
-            <Link to="/"><span className="text-white text-4xl  font-extrabold">COLLEGE ACCESS</span></Link>
+          <div className='flex items-center'>
+            <img src="clgIcon.jpg" alt="" style={{width:"40px",height:"40px" ,borderRadius:"50%"}}/>
+            <Link to="/"><span className="ps-4 text-white text-3xl  font-extrabold">COLLEGE ACCESS</span></Link>
           </div>
           {/* Responsive Menu */}
           <div className="md:hidden">
@@ -49,14 +58,17 @@ const Navbar = () => {
            <Link to="/colleges"> <a href="" className="text-white hover:text-green-600">Colleges</a></Link>
            <Link to="/admission"> <a href="" className="text-white hover:text-green-600">Admission</a></Link>
            <Link to="/mycolleges"> <a href="" className="text-white hover:text-green-600">My College</a></Link>
-           <Link to="/login"> <a href="" className="text-white hover:text-green-600">Login</a></Link>
+           {user ? 
           
-            <div className=" space-x-16">
+           <div className=" space-x-16">
               
-             <Link to=""><a href="" className="text-red-600 hover:text-green-600">Profile Name</a></Link> 
-             <button><a href="" className="text-white hover:text-green-600">Log Out</a></button> 
+              <Link to="/profile"><a href="" className="text-red-600 hover:text-green-600">{loggedUser}</a></Link> 
+              <button><a href="" className="text-white hover:text-green-600" onClick={logOut}>Log Out</a></button> 
+               
+               </div>:<Link to="/login"> <a href="" className="text-white hover:text-green-600">Login</a></Link>
+               
               
-              </div>
+              } 
           </div>
         </div>
       </div>
@@ -67,14 +79,16 @@ const Navbar = () => {
           <Link to="/colleges"><a href="" className="block text-white p-2 hover:bg-green-600">Colleges</a></Link>
           <Link to="/admission"><a href="" className="block text-white p-2 hover:bg-green-600">Admission</a></Link>
           <Link to="/mycolleges"><a href="" className="block text-white p-2 hover:bg-green-600">My College</a></Link>
-          <Link to="/login"><a href="" className="block text-white p-2 hover:bg-green-600">Login</a></Link>
+        {user ?
           
-          <div className=" ">
+            <div className=" ">
               
-              <Link to="/"><a href="" className="text-red-600 block p-2 hover:bg-green-600">Profile Name</a></Link>
-              <button><a href="" className="text-white  block p-2 hover:bg-green-600">Log Out</a></button>
+              <Link to="/profile"><a href="" className="text-red-600 block p-2 hover:bg-green-600">{loggedUser}</a></Link>
+              <button><a href="" className="text-white  block p-2 hover:bg-green-600"onClick={logOut}>Log Out</a></button>
               
-              </div>
+              </div>:<Link to="/login"><a href="" className="block text-white p-2 hover:bg-green-600">Login</a></Link>
+              
+            }
         </div>
       )}
     </nav>
