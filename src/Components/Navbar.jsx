@@ -45,15 +45,17 @@ const Navbar = () => {
           </div>
           {/* Normal Menu */}
           <div className="hidden md:flex space-x-16">
-           <link to="/"> <p className="text-white hover:text-green-600">Home</p></link>
-            <a href="/about" className="text-white hover:text-green-600">Colleges</a>
-            <a href="/services" className="text-white hover:text-green-600">Admission</a>
-            <a href="/contact" className="text-white hover:text-green-600">My College</a>
-            <a href="/contact" className="text-white hover:text-green-600">Login</a>
+           <Link to="/"> <a href="" className="text-white hover:text-green-600">Home</a></Link>
+           <Link to="/colleges"> <a href="" className="text-white hover:text-green-600">Colleges</a></Link>
+           <Link to="/admission"> <a href="" className="text-white hover:text-green-600">Admission</a></Link>
+           <Link to="/mycolleges"> <a href="" className="text-white hover:text-green-600">My College</a></Link>
+           <Link to="/login"> <a href="" className="text-white hover:text-green-600">Login</a></Link>
+          
             <div className=" space-x-16">
               
-              <a href="/contact" className="text-red-600 hover:text-green-600">Profile Name</a>
-              <a href="/contact" className="text-white hover:text-green-600">Log Out</a>
+             <Link to=""><a href="" className="text-red-600 hover:text-green-600">Profile Name</a></Link> 
+             <button><a href="" className="text-white hover:text-green-600">Log Out</a></button> 
+              
               </div>
           </div>
         </div>
@@ -61,15 +63,17 @@ const Navbar = () => {
       {/* Dropdown for small devices */}
       {isDropdownOpen && (
         <div className="md:hidden bg-green-500">
-          <a href="/" className="block text-white p-2 hover:bg-green-600">Home</a>
-          <a href="/about" className="block text-white p-2 hover:bg-green-600">Colleges</a>
-          <a href="/services" className="block text-white p-2 hover:bg-green-600">Admission</a>
-          <a href="/contact" className="block text-white p-2 hover:bg-green-600">My College</a>
-          <a href="/contact" className="block text-white p-2 hover:bg-green-600">Login</a>
+          <Link to="/"><a href="" className="block text-white p-2 hover:bg-green-600">Home</a></Link>
+          <Link to="/colleges"><a href="" className="block text-white p-2 hover:bg-green-600">Colleges</a></Link>
+          <Link to="/admission"><a href="" className="block text-white p-2 hover:bg-green-600">Admission</a></Link>
+          <Link to="/mycolleges"><a href="" className="block text-white p-2 hover:bg-green-600">My College</a></Link>
+          <Link to="/login"><a href="" className="block text-white p-2 hover:bg-green-600">Login</a></Link>
+          
           <div className=" ">
               
-              <a href="/contact" className="text-red-600 block p-2 hover:bg-green-600">Profile Name</a>
-              <a href="/contact" className="text-white block p-2 hover:bg-green-600">Log Out</a>
+              <Link to="/"><a href="" className="text-red-600 block p-2 hover:bg-green-600">Profile Name</a></Link>
+              <button><a href="" className="text-white  block p-2 hover:bg-green-600">Log Out</a></button>
+              
               </div>
         </div>
       )}

@@ -14,6 +14,7 @@ import Register from './Routes/Register';
 import Login from './Routes/Login';
 import Root from './Components/Root';
 import ErrorPage from './Routes/ErrorPage';
+import AuthProvider from './Firebase/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <RouterProvider router={router} />
+    <AuthProvider><RouterProvider router={router} /></AuthProvider>
+  
   </React.StrictMode>,
 )
