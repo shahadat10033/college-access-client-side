@@ -15,6 +15,7 @@ import Login from './Routes/Login';
 import Root from './Components/Root';
 import ErrorPage from './Routes/ErrorPage';
 import AuthProvider from './Firebase/AuthProvider';
+import AdmissionForm from './Components/AdmissionForm';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,15 @@ const router = createBrowserRouter([
       {
         path: "/admission",
         element: <Admission />,
+      },
+      {
+        path: "/admission/:id",
+        element: <AdmissionForm />,
+        // loader: ({ params }) => {
+        //   return fetch(
+        //     `https://localhost:5000/admission/${params.id}`
+        //   );
+        // },
       },
       {
         path: "/mycolleges",

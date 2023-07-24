@@ -25,7 +25,7 @@ const Admission = () => {
 <li className='py-2 text-center text-xl underline' key={college._id}>
 
 
-<Link>{  college.collegeName}</Link>
+<Link to={`/admission/${college._id}`}>{  college.collegeName}</Link>
 
 </li>
 

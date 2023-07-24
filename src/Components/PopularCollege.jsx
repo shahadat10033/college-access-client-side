@@ -21,7 +21,7 @@ const PopularCollege = () => {
     return (
         <div>
             <h2 className='text-center text-green-500 text-2xl'>Popular colleges</h2>
-       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-6">
+       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-6">
 {
 colleges.map(college=>(
 
