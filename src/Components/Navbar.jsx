@@ -19,10 +19,10 @@ if(loader){
         <nav className="bg-green-500 p-4">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <div className='flex items-center'>
+        <Link to="/"> <div className='flex items-center'>
             <img src="clgIcon.jpg" alt="" style={{width:"40px",height:"40px" ,borderRadius:"50%"}}/>
-            <Link to="/"><span className="ps-4 text-white text-3xl  font-extrabold">COLLEGE ACCESS</span></Link>
-          </div>
+           <span className="ps-4 text-white text-3xl  font-extrabold">COLLEGE ACCESS</span>
+          </div></Link>
           {/* Responsive Menu */}
           <div className="md:hidden">
             <button
