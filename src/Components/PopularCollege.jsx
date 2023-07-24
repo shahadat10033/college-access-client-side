@@ -5,7 +5,7 @@ const PopularCollege = () => {
 
     useEffect(()=>{
     
-    fetch("http://localhost:5000/popularColleges")
+    fetch("https://college-access-server-shahadat10033.vercel.app/popularColleges")
     .then(res=>res.json())
     .then(data=>{
     

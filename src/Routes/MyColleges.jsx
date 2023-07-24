@@ -7,7 +7,7 @@ const MyColleges = () => {
 console.log(user.email)
     useEffect(()=>{
     
-    fetch(`http://localhost:5000/myColleges?email=${user?.email}`)
+    fetch(`https://college-access-server-shahadat10033.vercel.app/myColleges?email=${user?.email}`)
     .then(res=>res.json())
     .then(data=>{
     

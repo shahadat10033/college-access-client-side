@@ -11,7 +11,7 @@ const AdmissionForm = () => {
 
     useEffect(()=>{
     if(id){
-    fetch(`http://localhost:5000/admission/${id}`)
+    fetch(`https://college-access-server-shahadat10033.vercel.app/admission/${id}`)
     .then(res=>res.json())
     .then(data=>{
     
@@ -36,7 +36,7 @@ const info ={university,name, email, subject, phone, address, dateOBirth, image}
 
 
 
-fetch("http://localhost:5000/admissionForm", {
+fetch("https://college-access-server-shahadat10033.vercel.app/admissionForm", {
     method: "POST",
     headers: {
       "content-type": "application/json",
